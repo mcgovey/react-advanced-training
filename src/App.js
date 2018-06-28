@@ -3,6 +3,8 @@ import './App.css';
 
 import List from './List';
 
+import { Provider } from './stateCtx';
+
 class App extends Component {
   state = {
     items: [7, 9, 10],
@@ -14,9 +16,11 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <List items={this.state.items} />
-      </div>
+      <Provider value={this.state.items}>
+        <div className="App">
+          <List />
+        </div>
+      </Provider>
     );
   }
 }
